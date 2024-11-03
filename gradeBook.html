@@ -9,65 +9,62 @@
 
 <body>
     <script>
-        function Gradebook() {
-            var students = [];
-            this.addStudent = function (name) {
-                students[students.length] = { name: name, grades: [] };
-            };
-            this.addGrade = function (name, grade) {
-                for (var i = 0; i < students.length; i++) {
-                    if (students[i].name === name) {
-                        students[i].grades[students[i].grades.length] = grade;
-                        break;
-                    }
-                }
-            };
-            this.calculateAverageGrade = function (name) {
-                var averageGrade = null;
-                for (var i = 0; i < students.length; i++) {
-                    if (students[i].name === name) {
-                        var total = 0;
-                        for (var j = 0; j < students[i].grades.length; j++) {
-                            total += students[i].grades[j];
-                        }
-                        averageGrade = total / students[i].grades.length;
-                        break;
-                    }
-                }
-                console.log("Average Grade: " + averageGrade);
-            };
-            this.findHighestAndLowestGrades = function (name) {
-                var highestGrade = null;
-                var lowestGrade = null;
-                for (var i = 0; i < students.length; i++) {
-                    if (students[i].name === name) {
-                        var grades = students[i].grades;
-                        highestGrade = grades[0];
-                        lowestGrade = grades[0];
-                        for (var j = 1; j < grades.length; j++) {
-                            if (grades[j] > highestGrade) {
-                                highestGrade = grades[j];
-                            }
-                            if (grades[j] < lowestGrade) {
-                                lowestGrade = grades[j];
-                            }
-                        }
-                        break;
-                    }
-                }
-                console.log("Highest Grade: " + highestGrade);
-                console.log("Lowest Grade: " + lowestGrade);
-            };
+        var students = [];
+        function addStudent(name) {
+            students[students.length] = { name: name, grades: [] };
         }
-        var gradebook = new Gradebook();
-        gradebook.addStudent("Alice");
-        gradebook.addGrade("Alice", 90);
-        gradebook.addGrade("Alice", 80);
-        gradebook.addGrade("Alice", 85);
 
-        gradebook.calculateAverageGrade("Alice");
-        gradebook.findHighestAndLowestGrades("Alice");
+        function addGrade(name, grade) {
+            for (var i = 0; i < students.length; i++) {
+                if (students[i].name === name) {
+                    students[i].grades[students[i].grades.length] = grade;
+                    break;
+                }
+            }
+        }
+        function calculateAverageGrade(name) {
+            var averageGrade = null;
+            for (var i = 0; i < students.length; i++) {
+                if (students[i].name === name) {
+                    var total = 0;
+                    for (var j = 0; j < students[i].grades.length; j++) {
+                        total += students[i].grades[j];
+                    }
+                    averageGrade = total / students[i].grades.length;
+                    break;
+                }
+            }
+            console.log("Average Grade: " + averageGrade);
+        }
+        function findHighestAndLowestGrades(name) {
+            var highestGrade = null;
+            var lowestGrade = null;
+            for (var i = 0; i < students.length; i++) {
+                if (students[i].name === name) {
+                    var grades = students[i].grades;
+                    highestGrade = grades[0];
+                    lowestGrade = grades[0];
+                    for (var j = 1; j < grades.length; j++) {
+                        if (grades[j] > highestGrade) {
+                            highestGrade = grades[j];
+                        }
+                        if (grades[j] < lowestGrade) {
+                            lowestGrade = grades[j];
+                        }
+                    }
+                    break;
+                }
+            }
+            console.log("Highest Grade: " + highestGrade);
+            console.log("Lowest Grade: " + lowestGrade);
+        }
 
+        addStudent("Alice");
+        addGrade("Alice", 90);
+        addGrade("Alice", 80);
+        addGrade("Alice", 85);
+        calculateAverageGrade("Alice");
+        findHighestAndLowestGrades("Alice");
     </script>
 </body>
 
