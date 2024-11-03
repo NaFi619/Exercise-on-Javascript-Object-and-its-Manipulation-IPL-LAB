@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var employeeDetails = {
+            id: null,
+            name: null,
+            position: null,
+            salary: null
+        };
+        function addEmployee(employee) {
+            employeeDetails.id = employee.id;
+            employeeDetails.name = employee.name;
+            employeeDetails.position = employee.position;
+            employeeDetails.salary = employee.salary;
+        }
+        function removeEmployee() {
+            employeeDetails.id = null;
+            employeeDetails.name = null;
+            employeeDetails.position = null;
+            employeeDetails.salary = null;
+        }
+        function getEmployeeDetails() {
+            return {
+                id: employeeDetails.id,
+                name: employeeDetails.name,
+                position: employeeDetails.position,
+                salary: employeeDetails.salary
+            };
+        }
+        function getSalary() {
+            return employeeDetails.salary;
+        }
+        var employee = { id: 7, name: "Nafiul Hashem Adruha", position: "Back-Developer", salary: 50000 };
+        addEmployee(employee);
+
+        console.log("Employee Details:", getEmployeeDetails());
+        console.log("Employee Salary:", getSalary());
+
+        removeEmployee();
+
+        console.log("Employee Details after removal:", getEmployeeDetails());
+
+    </script>
+</body>
+
+</html>
